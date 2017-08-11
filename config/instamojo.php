@@ -33,7 +33,7 @@ $config['mojo_mode']  = 'sandbox' ;
 |
 */
 
-$config['mojo_apikey'] = 'f941c38e639bad1f4022423e95dbfa3d' ;
+$config['mojo_apikey'] = '' ;
 
 
 /*
@@ -46,7 +46,7 @@ $config['mojo_apikey'] = 'f941c38e639bad1f4022423e95dbfa3d' ;
 */
 
 
-$config['mojo_token']  = 'c2d52ccf69f6973d9499a69bb03d19d6' ;
+$config['mojo_token']  = '' ;
 
 
 /*
@@ -58,7 +58,7 @@ $config['mojo_token']  = 'c2d52ccf69f6973d9499a69bb03d19d6' ;
 |
 */
 
-$config['mojo_url'] = 'https://github.com/Instamojo/instamojo-php';
+$config['mojo_url'] = 'https://github.com/rajeevbbqq/instamojo-codeigniter';
 
 
 /* End of file instamojo.php */
