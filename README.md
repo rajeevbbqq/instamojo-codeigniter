@@ -17,5 +17,5 @@ Edit config/instamojo.php with your credentials
 		print_r($result);
     
 
-    NB: Please go through insatmojo.php in Library folder to view all function
-  
+    NB: Please go through insatmojo.php in Library folder to view all functions
+ 
