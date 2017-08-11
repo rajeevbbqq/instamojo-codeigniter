@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 *
 * @license Creative Commons Attribution 3.0 <http://creativecommons.org/licenses/by/3.0/>
 * @version 1.0
-* @author Rajeev bbqq <http://bbqq.me>
+* @author Rajeev bbqq <https://github.com/rajeevbbqq>
 * @copyright Copyright (c) 2017, Rajeev bbqq
 */
 
