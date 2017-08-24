@@ -53,7 +53,7 @@ $config['mojo_token']  = '' ;
 |--------------------------------------------------------------------------
 | REDIRECT_URL
 |--------------------------------------------------------------------------
-| AUTH_TOKEN are different for test and production !
+| Set redirect url !
 | $config['mojo_url'] = 'https://github.com/Instamojo/instamojo-php';
 |
 */
