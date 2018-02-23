@@ -18,7 +18,7 @@ class Example extends CI_Controller {
 						$purpose = "TEST" , 
 						$buyer_name = "rbbqq" , 
 						$email = "rajeevbbqq@gmail.com" , 
-						$phone = "8921892017" ,
+						$phone = "89xxxx2017" ,
 		     			$send_email = 'TRUE' , 
 		     			$send_sms = 'TRUE' , 
 		     			$repeated = 'FALSE'
