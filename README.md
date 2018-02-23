@@ -17,5 +17,5 @@ Edit config/instamojo.php with your credentials
 		print_r($result);
     
 
-    NB: Please go through controller/example.php to know basic checkout
+    NB: Please go through controller/example.php to try basic checkout
  
