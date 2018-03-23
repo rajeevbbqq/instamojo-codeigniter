@@ -1,5 +1,5 @@
 # Instamojo Payment api for codeigniter
-Instamojo Payment api written for Codeigniter 2.x
+Instamojo Payment api written for Codeigniter ( Tested with 2.x )
 
 # Installation 
 
