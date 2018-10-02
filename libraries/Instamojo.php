@@ -278,7 +278,10 @@ class Instamojo {
 
     public function makeTable()
     {
-    	$fields = array(
+    		$this->_ci->load->database();	
+			if (!$this->_ci->db->table_exists('mojo')) 
+			{
+				$fields = array(
                         'id' => array(
                                                  'type' => 'INT',
                                                  'constraint' => 10, 
@@ -376,10 +379,11 @@ class Instamojo {
                                           ),
                 );
 
-		$this->_ci->load->dbforge();
-		$this->_ci->dbforge->add_field($fields);
-		$this->_ci->dbforge->add_key('id', TRUE);
-		$this->_ci->dbforge->create_table('mojo', TRUE);
+				$this->_ci->load->dbforge();
+				$this->_ci->dbforge->add_field($fields);
+				$this->_ci->dbforge->add_key('id', TRUE);
+				$this->_ci->dbforge->create_table('mojo', TRUE);	
+			}    	
     }
 }
 
