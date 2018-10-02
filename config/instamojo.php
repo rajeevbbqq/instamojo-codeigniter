@@ -33,7 +33,7 @@ $config['mojo_mode']  = 'sandbox' ;
 |
 */
 
-$config['mojo_apikey'] = 'apikey' ;
+$config['mojo_apikey'] = 'mojo_apikey' ;
 
 
 /*
@@ -46,19 +46,7 @@ $config['mojo_apikey'] = 'apikey' ;
 */
 
 
-$config['mojo_token']  = 'token' ;
-
-
-/*
-|--------------------------------------------------------------------------
-| DATABASE
-|--------------------------------------------------------------------------
-| Creates a 'mojo' table and store all orders, if set to true
-|
-*/
-
-
-$config['mojo_db']  = true ;
+$config['mojo_token']  = 'mojo_token' ;
 
 
 /*
@@ -70,7 +58,29 @@ $config['mojo_db']  = true ;
 |
 */
 
-$config['mojo_url'] = 'https://github.com/rajeevbbqq/instamojo-codeigniter';
+$config['mojo_url'] = 'mojo_url';
+
+
+/*
+|--------------------------------------------------------------------------
+| DATABASE
+|--------------------------------------------------------------------------
+| Creates a 'mojo' table and store all orders, if set to true
+|
+*/
+
+$config['mojo_db']  = true ;
+
+
+/*
+|--------------------------------------------------------------------------
+| TABE NAME
+|--------------------------------------------------------------------------
+| Creates table if $config['mojo_db']  = true ;
+|
+*/
+
+$config['mojo_table']  = 'table_name' ;
 
 
 /* End of file instamojo.php */
