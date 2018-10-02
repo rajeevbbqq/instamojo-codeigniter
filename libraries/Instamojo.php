@@ -14,9 +14,10 @@ class Instamojo {
 		$this->db = $this->_ci->config->item('mojo_db');
 
 		if ($this->db) 
-		{			
+		{	
+			$this->mojoTable = $this->_ci->config->item('mojo_table');	
     		$this->_ci->load->database();	
-			$this->makeTable($this->_ci->config->item('mojo_table'));
+			$this->makeTable($this->mojoTable);
 		}
 
 	}
@@ -47,6 +48,10 @@ class Instamojo {
 		elseif (strlen($token) <= 0)
 		{
 			return "Please set Auth_Token";
+		}
+		else if ($this->db) 
+		{
+			return $this->_ci->db->get($this->mojoTable)->result();
 		}
 		elseif ($mode == 'sandbox')
 		{
