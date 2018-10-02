@@ -70,7 +70,7 @@ $config['mojo_db']  = true ;
 |
 */
 
-$config['mojo_url'] = 'redirect_url';
+$config['mojo_url'] = 'https://github.com/rajeevbbqq/instamojo-codeigniter';
 
 
 /* End of file instamojo.php */
