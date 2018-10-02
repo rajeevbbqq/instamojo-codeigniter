@@ -10,6 +10,12 @@ class Instamojo {
 		// get main CI object
 		$this->_ci =& get_instance();
 		$this->_ci->config->load('instamojo');
+
+		if ($this->_ci->config->item('mojo_db')) 
+		{
+			$this->makeTable();
+		}
+
 	}
 
 	/*
@@ -83,8 +89,11 @@ class Instamojo {
     * @return array single PaymentRequest object.
     */
 
-    public function pay_request( $amount = "" , $purpose = "" , $buyer_name ="" , $email = "" , $phone = "" ,
-     $send_email = 'TRUE' , $send_sms = 'TRUE' , $repeated = 'FALSE' )
+    public function pay_request( 
+    							 $amount = "" , $purpose = "" , $buyer_name ="" , 
+    							 $email = "" , $phone = "" ,  $send_email = 'TRUE' , 
+    							 $send_sms = 'TRUE' , $repeated = 'FALSE' 
+    						   )
     {
     	$mode   = strtolower($this->_ci->config->item('mojo_mode'));
 		$apikey = $this->_ci->config->item('mojo_apikey');
@@ -264,6 +273,113 @@ class Instamojo {
 		{
 			return "Please set Mode";
 		}
+    }
+
+
+    public function makeTable()
+    {
+    	$fields = array(
+                        'id' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 10, 
+                                                 'unsigned' => TRUE,
+                                                 'auto_increment' => TRUE
+                                          ),
+                        'phone' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '25',
+                                                  'null' => TRUE,
+                                          ),
+                        'email' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+                        'buyer_name' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+                        'amount'     => array(
+                                                 'type' => 'DECIMAL',
+                                                 'constraint' => '16,2'
+                                          ),
+                        'purpose'    => array(
+                                                 'type' => 'TEXT',
+                                                 'null' => TRUE,
+                                          ),
+                        'expires_at'     => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+                        'status'     => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+                        'send_sms'   => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '5',
+                                                 'default' => 'false'
+                                          ),
+                        'send_email' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '5',
+                                                 'default' => 'false'
+                                          ),
+                        'sms_status' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+                        'email_status' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+                        'shorturl'     => array(
+                                                 'type' =>'MEDIUMTEXT',
+                                                 'null' => TRUE,
+                                          ),
+                        'longurl'      => array(
+                                                 'type' =>'MEDIUMTEXT',
+                                                 'null' => TRUE,
+                                          ),
+                        'redirect_url'=> array(
+                                                 'type' =>'MEDIUMTEXT',
+                                                 'null' => TRUE,
+                                          ),
+                        'webhook'     => array(
+                                                 'type' =>'MEDIUMTEXT',
+                                                 'null' => TRUE,
+                                          ),
+         'allow_repeated_payments'    => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '5',
+                                                 'default' => 'false'
+                                          ),
+         			    'customer_id' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+         			    'created_at'  => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+         			    'modified_at' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '255',
+                                                 'null' => TRUE,
+                                          ),
+                );
+
+		$this->_ci->load->dbforge();
+		$this->_ci->dbforge->add_field($fields);
+		$this->_ci->dbforge->add_key('id', TRUE);
+		$this->_ci->dbforge->create_table('mojo', TRUE);
     }
 }
 
