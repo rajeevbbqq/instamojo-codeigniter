@@ -13,7 +13,7 @@ class Instamojo {
 
 		if ($this->_ci->config->item('mojo_db')) 
 		{
-			$this->makeTable();
+			$this->makeTable($this->_ci->config->item('mojo_table'));
 		}
 
 	}
@@ -276,10 +276,10 @@ class Instamojo {
     }
 
 
-    public function makeTable()
+    public function makeTable($table)
     {
     		$this->_ci->load->database();	
-			if (!$this->_ci->db->table_exists('mojo')) 
+			if (!$this->_ci->db->table_exists($table)) 
 			{
 				$fields = array(
                         'id' => array(
@@ -382,7 +382,7 @@ class Instamojo {
 				$this->_ci->load->dbforge();
 				$this->_ci->dbforge->add_field($fields);
 				$this->_ci->dbforge->add_key('id', TRUE);
-				$this->_ci->dbforge->create_table('mojo', TRUE);	
+				$this->_ci->dbforge->create_table($table, TRUE);	
 			}    	
     }
 }
