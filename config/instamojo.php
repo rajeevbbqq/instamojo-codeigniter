@@ -33,7 +33,7 @@ $config['mojo_mode']  = 'sandbox' ;
 |
 */
 
-$config['mojo_apikey'] = '' ;
+$config['mojo_apikey'] = 'apikey' ;
 
 
 /*
@@ -46,7 +46,19 @@ $config['mojo_apikey'] = '' ;
 */
 
 
-$config['mojo_token']  = '' ;
+$config['mojo_token']  = 'token' ;
+
+
+/*
+|--------------------------------------------------------------------------
+| DATABASE
+|--------------------------------------------------------------------------
+| Creates a 'mojo' table and store all orders, if set to true
+|
+*/
+
+
+$config['mojo_db']  = true ;
 
 
 /*
@@ -58,7 +70,7 @@ $config['mojo_token']  = '' ;
 |
 */
 
-$config['mojo_url'] = 'https://github.com/rajeevbbqq/instamojo-codeigniter';
+$config['mojo_url'] = 'redirect_url';
 
 
 /* End of file instamojo.php */
