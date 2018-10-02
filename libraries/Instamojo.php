@@ -11,12 +11,16 @@ class Instamojo {
 		$this->_ci =& get_instance();
 		$this->_ci->config->load('instamojo');
 
-		if ($this->_ci->config->item('mojo_db')) 
-		{
+		$this->db = $this->_ci->config->item('mojo_db');
+
+		if ($this->db) 
+		{			
+    		$this->_ci->load->database();	
 			$this->makeTable($this->_ci->config->item('mojo_table'));
 		}
 
 	}
+
 
 	/*
 	 *
@@ -133,6 +137,12 @@ class Instamojo {
 				try 
 				{
 		    		$response = $api->paymentRequestCreate($array);
+
+		    		if ($this->db) 
+					{
+						$this->insertData($response);
+					}
+
 		    		return $response;
 				}
 				catch (Exception $e) 
@@ -147,6 +157,12 @@ class Instamojo {
 				try 
 				{
 		    		$response = $api->paymentRequestCreate($array);
+
+					if ($this->db) 
+					{
+						$this->insertData($response);
+					}
+
 		    		return $response;
 				}
 				catch (Exception $e) 
@@ -276,9 +292,36 @@ class Instamojo {
     }
 
 
+    public function insertData($data)
+    {
+    	$transaction = [
+							'phone'        => $data['phone'],
+							'email'        => $data['email'],
+							'buyer_name'   => $data['buyer_name'],
+							'amount'       => $data['amount'],
+							'purpose'      => $data['purpose'],
+							'expires_at'   => $data['expires_at'],
+							'status'       => $data['status'],
+							'send_sms'     => $data['send_sms'],
+							'send_email'   => $data['send_email'],
+							'sms_status'   => $data['sms_status'],
+							'email_status' => $data['email_status'],
+							'shorturl'     => $data['shorturl'],
+							'longurl'      => $data['longurl'],
+							'redirect_url' => $data['redirect_url'],
+							'webhook'      => $data['webhook'],
+				'allow_repeated_payments'  => $data['allow_repeated_payments'],
+							'customer_id'  => $data['customer_id'],
+							'created_at'   => $data['created_at'],
+							'modified_at'  => $data['modified_at']
+				       ];
+
+		$this->_ci->db->insert($this->_ci->config->item('mojo_table'), $transaction); 
+    }
+
+
     public function makeTable($table)
     {
-    		$this->_ci->load->database();	
 			if (!$this->_ci->db->table_exists($table)) 
 			{
 				$fields = array(
