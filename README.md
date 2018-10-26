@@ -3,7 +3,9 @@ Instamojo Payment api written for Codeigniter ( Tested with 2.x )
 
 # Database support 
 
-Supports database integration by setting `$config['mojo_db']  = true ;`on `config/instamojo.php` 
+Supports database integration by setting `$config['mojo_db']  = true ;` on `config/instamojo.php`
+
+Set table name on `$config['mojo_table']  = 'table_name' ;` 
 
 Read more on `config/instamojo.php`
 
