@@ -47,7 +47,7 @@ class Instamojo {
 		}
 		elseif (strlen($token) <= 0)
 		{
-			return "Please set Auth_Token";
+			return "Please set Auth Token";
 		}
 		else if ($this->db) 
 		{
