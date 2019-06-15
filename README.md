@@ -1,6 +1,8 @@
 # Instamojo Payment api for codeigniter
 Instamojo Payment api written for Codeigniter ( Tested with 2.x )
 
+# <a href="https://github.com/rajeevbbqq/instamojo-codeigniter/archive/0.8.zip">Download Package</a>
+
 # Database support 
 
 1. Activate database support by setting `$config['mojo_db']  = true ;` on `config/instamojo.php`
