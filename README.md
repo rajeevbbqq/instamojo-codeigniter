@@ -1,5 +1,9 @@
 # Instamojo Payment api for codeigniter
-Instamojo Payment api written for Codeigniter ( Tested with 2.x )
+Instamojo Payment gateway library for Codeigniter ( Tested with 2.x ).
+
+```
+This library helps you to do easily integrate Instamojo payment gateway and your Application through simple methods.
+```
 
 # <a href="https://github.com/rajeevbbqq/instamojo-codeigniter/archive/0.8.zip">Download Package</a>
 
@@ -30,4 +34,8 @@ Edit config/instamojo.php with your credentials
     
 
     NB: Please go through controller/example.php to try basic checkout
+    
+```
+Note to contributers: The refund API from Instamojo is not implemented, welcoming your proposals.
+```
  
